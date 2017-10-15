@@ -32,13 +32,13 @@ Make sure the file is executable by issuing the following command.
 Now all you have to do in execute this script.
 ```./setup.sh```
 
-This will
-	1. Download `ubuntu/trusty64` vagrant box
-	2. Provision the vagrant box with ansible script.
-	3. Install Java, Jenkins, Docker in the Vagrant box.
-	4. Trigger the first build of the Jenkins, which will pull `https://github.com/nagrifetchr/fetchr.git` and launch a docker container on `localhost:8090`
-	5. After this on every push that happens on `https://github.com/nagrifetchr/fetchr.git` master branch will trigger a build in Jenkins and replace the running container with the new container.
-	
+This will:
+1. Download `ubuntu/trusty64` vagrant box
+2. Provision the vagrant box with ansible script.
+3. Install Java, Jenkins, Docker in the Vagrant box.
+4. Trigger the first build of the Jenkins, which will pull `https://github.com/nagrifetchr/fetchr.git` and launch a docker container on `localhost:8090`
+5. After this on every push that happens on `https://github.com/nagrifetchr/fetchr.git` master branch will trigger a build in Jenkins and replace the running container with the new container.
+
 ## Authors
 
 * **Hussain Nagri**
