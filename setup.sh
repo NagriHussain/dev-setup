@@ -2,7 +2,9 @@
 JENKINS_REMOTE_TOKEN="RBs3NFqBp3sSLTC3gKBeYJIfvKbwmbAv"
 echo "Make sure Vagrant is at Version: 1.9.1
 Make sure you have ansible 2.4.0.0 Installed
+***********************************************************************
 make sure you have appended the path $(pwd)/provisioning/roles in file
+***********************************************************************
 /etc/ansible/ansible.cfg on variable roles_path.
 This will take ~10-15 minutes. So sit back, relax. Maybe have some coffee.. :)
 Provisioning Vagrant for you."
