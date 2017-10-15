@@ -1,0 +1,33 @@
+---
+- name: Update cert index
+  shell: /usr/sbin/update-ca-certificates -f
+
+- name: Adding user jenkins into docker group 
+  user: name=jenkins
+        shell=/bin/bash
+        groups=docker
+        append=yes
+
+- name: Stop jenkins
+  shell: "curl -X POST -u {{ jenkins_admin_username }}:{{ jenkins_admin_password }} http://{{ jenkins_hostname }}:{{ jenkins_http_port }}/exit"
+
+- name: Clean jenkins path
+  file: state=absent
+        path="/var/lib/jenkins/*"
+
+- name: copy jenkins setup
+  copy: src=files/jenkins_setup.tar.gz
+        dest=/tmp/jenkins_setup.tar.gz
+
+- name: Extract tarball
+  unarchive: src=/tmp/jenkins_setup.tar.gz
+             dest=/var/lib/jenkins/ 
+             remote_src=yes
+
+- name: Change ownership
+  file: path=/var/lib/jenkins
+        owner=jenkins
+        group=jenkins
+        state=directory
+        recurse=yes
+  notify: restart jenkins
