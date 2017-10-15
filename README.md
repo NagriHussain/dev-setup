@@ -3,8 +3,6 @@
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
-
 Install ansible 2.4.0.0
 Make sure that `/etc/ansible/ansible.cfg` has roles_path
 
